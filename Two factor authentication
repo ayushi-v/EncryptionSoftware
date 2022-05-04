@@ -1,0 +1,9 @@
+import pyotp
+import qrcode
+t=pyotp.TOTP('3232323232323232')
+print(t.now())
+auth_str= t.provisioning_uri(name='xy@groupseven',issuer_name='groupseven')
+print(auth_str)
+img=qrcode.make(auth_str)
+display(img)
+print(t.now())
